@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+def flink_version = '1.14.0'
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    testImplementation(group: 'org.apache.flink',  name: 'flink-table-api-java-bridge_2.12', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-table-planner_2.12', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-streaming-java_2.12', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-clients_2.12', version: flink_version)
+}
+
+test {
+    useJUnitPlatform()
+}

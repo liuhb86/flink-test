@@ -1,0 +1,4 @@
+rootProject.name = 'flink24926'
+
+include 'flink-test'
+
