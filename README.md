@@ -1,3 +1,3 @@
-# Test case for FLINK-24926
+# Test case for Flink Table API functionality
 
 please run ./gradlew test
