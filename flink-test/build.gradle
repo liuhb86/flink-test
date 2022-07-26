@@ -1,8 +1,9 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
-def flink_version = '1.14.0'
+def flink_version = '1.15.1'
 
 version 'unspecified'
 
@@ -11,13 +12,22 @@ repositories {
 }
 
 dependencies {
+    implementation(group: 'org.apache.flink', name: 'flink-connector-kafka', version: flink_version)
+    implementation(group: 'org.apache.flink', name: 'flink-json', version: flink_version)
+
+    compileOnly(group: 'org.apache.flink',  name: 'flink-table-common', version: flink_version)
+    compileOnly(group: 'org.apache.flink',  name: 'flink-streaming-java', version: flink_version)
+    compileOnly(group: 'org.apache.flink',  name: 'flink-table-api-java-bridge', version: flink_version)
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
-    testImplementation(group: 'org.apache.flink',  name: 'flink-table-api-java-bridge_2.12', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-table-api-java-bridge', version: flink_version)
     testImplementation(group: 'org.apache.flink',  name: 'flink-table-planner_2.12', version: flink_version)
-    testImplementation(group: 'org.apache.flink',  name: 'flink-streaming-java_2.12', version: flink_version)
-    testImplementation(group: 'org.apache.flink',  name: 'flink-clients_2.12', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-streaming-java', version: flink_version)
+    testImplementation(group: 'org.apache.flink',  name: 'flink-clients', version: flink_version)
+
+
 }
 
 test {

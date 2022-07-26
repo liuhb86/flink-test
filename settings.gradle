@@ -1,4 +1,4 @@
-rootProject.name = 'flink24926'
+rootProject.name = 'flink-test-root'
 
 include 'flink-test'
 
